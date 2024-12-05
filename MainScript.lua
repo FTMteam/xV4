@@ -1990,10 +1990,10 @@ if shared.BACKUPTELEPORTMODE then
 					if isfile('vape/NewMainScript.lua') then
 						loadstring(readfile("vape/NewMainScript.lua"))()
 					else
-						loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/vapevoidware/main/NewMainScript.lua", true))()
+						loadstring(game:HttpGet("https://raw.githubusercontent.com/FTMteam/xV4/main/NewMainScript.lua", true))()
 					end
 				else
-					loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/vapevoidware/main/NewMainScript.lua", true))()
+					loadstring(game:HttpGet("https://raw.githubusercontent.com/FTMteam/xV4/main/NewMainScript.lua", true))()
 				end
 			]]
 			if shared.VapeDeveloper then
@@ -2043,10 +2043,10 @@ else
 							if isfile('vape/NewMainScript.lua') then
 								loadstring(readfile("vape/NewMainScript.lua"))()
 							else
-								loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/vapevoidware/main/NewMainScript.lua", true))()
+								loadstring(game:HttpGet("https://raw.githubusercontent.com/FTMteam/xV4/main/NewMainScript.lua", true))()
 							end
 						else
-							loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/vapevoidware/main/NewMainScript.lua", true))()
+							loadstring(game:HttpGet("https://raw.githubusercontent.com/FTMteam/xV4/main/NewMainScript.lua", true))()
 						end
 					end
 				]]
