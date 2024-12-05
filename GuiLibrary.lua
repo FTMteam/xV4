@@ -921,7 +921,7 @@ if shared.VapeExecuted then
 		windowlogo1.TextScaled = true
 		windowlogo1.BackgroundTransparency = 1
 		windowlogo1.TextColor3 = Color3.new(255, 255, 255)
-		windowlogo1.Text = "X V4"
+		windowlogo1.Text = "XQUISITE V4"
 		windowlogo1.Size = UDim2.new(0, 100, 0, 20)
 		windowlogo1.Position = UDim2.new(0, 11, 0, 12)
 		windowlogo1.TextStrokeTransparency = 0
@@ -1026,7 +1026,7 @@ if shared.VapeExecuted then
 				local hoverround3 = Instance.new("UICorner")
 				hoverround3.CornerRadius = UDim.new(0, 4)
 				hoverround3.Parent = hoverbox3
-				setclipboard("https://discord.gg/voidware")
+				setclipboard("https://discord.gg/kPttDVXXWM")
 				task.wait(1)
 				hoverbox3:Remove()
 			end)
