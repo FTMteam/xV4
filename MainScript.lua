@@ -856,7 +856,7 @@ VapeLogo.TextStrokeColor3 = Color3.new(255, 255, 255)
 VapeLogo.TextScaled = true
 VapeLogo.BackgroundTransparency = 1
 VapeLogo.TextColor3 = Color3.new(255, 255, 255)
-VapeLogo.Text = "xquisite V4"
+VapeLogo.Text = "XQUISITE V4"
 VapeLogo.Name = "Logo"
 VapeLogo.Parent = VapeLogoFrame
 local VapeLogoGradient = Instance.new("UIGradient")
@@ -2301,7 +2301,7 @@ local function loadVape()
 	end
 	--game:GetService("Players").LocalPlayer.GameplayPaused = false
 	if shared.CheatEngineMode then
-		if shared.CheatEngineMode and (not shared.VapeSwitchServers) then InfoNotification("x V4", "Loaded in Cheat Engine Mode! Some functions might be missing.", 1.5) end
+		if shared.CheatEngineMode and (not shared.VapeSwitchServers) then InfoNotification("Xquisite V4", "Loaded in Cheat Engine Mode! Some functions might be missing.", 1.5) end
 	else
 		InfoNotification("Xquisite V4", "Successfully loaded Xquisite :D", 1.5)
 	end
