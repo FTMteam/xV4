@@ -921,7 +921,7 @@ if shared.VapeExecuted then
 		windowlogo1.TextScaled = true
 		windowlogo1.BackgroundTransparency = 1
 		windowlogo1.TextColor3 = Color3.new(255, 255, 255)
-		windowlogo1.Text = "VOIDWARE"
+		windowlogo1.Text = "X V4"
 		windowlogo1.Size = UDim2.new(0, 100, 0, 20)
 		windowlogo1.Position = UDim2.new(0, 11, 0, 12)
 		windowlogo1.TextStrokeTransparency = 0
@@ -1389,7 +1389,7 @@ if shared.VapeExecuted then
 				dividerlabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 				dividerlabel.TextSize = 20
 				dividerlabel.Font = Enum.Font.SourceSans
-				dividerlabel.Text = "  VW "..(translations[text] ~= nil and translations[text] or text)
+				dividerlabel.Text = "  xV4 "..(translations[text] ~= nil and translations[text] or text)
 				dividerlabel.TextXAlignment = Enum.TextXAlignment.Left
 				dividerlabel.LayoutOrder = amount
 				dividerlabel.Parent = children
