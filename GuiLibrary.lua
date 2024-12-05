@@ -4187,6 +4187,7 @@ if shared.VapeExecuted then
 				repeat task.wait() until shared.vapewhitelist.loaded
 				--if shared.vapewhitelist:get(game:GetService("Players").LocalPlayer) == argstablemain["WhitelistRequired"] or shared.vapewhitelist:get(game:GetService("Players").LocalPlayer) > argstablemain["WhitelistRequired"] then 
 					allowed = true 
+					print('Allowed - GUI Lib' )
 					task.spawn(function()
 						repeat task.wait() until (shared.warningNotification or warningNotification)
 						local warningNotification = warningNotification or shared.warningNotification
