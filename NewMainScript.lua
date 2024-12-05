@@ -1,5 +1,6 @@
 repeat task.wait() until game:IsLoaded()
 shared.oldgetcustomasset = shared.oldgetcustomasset or getcustomasset
+print('Loaded x V4 version')
 task.spawn(function()
     repeat task.wait() until shared.VapeFullyLoaded
     getgenv().getcustomasset = shared.oldgetcustomasset -- vape bad code moment
@@ -439,5 +440,5 @@ local function pload(fileName, isImportant, required)
 end
 shared.pload = pload
 getgenv().pload = pload
-print('Loaded x V4 version')
+
 return pload("MainScript.lua", true)
