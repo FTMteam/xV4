@@ -1,7 +1,6 @@
 --This watermark is used to delete the file if its cached, remove it to make the file persist after commits.
 repeat task.wait() until game:IsLoaded()
-local GuiLibrary
-local VWFunctions
+
 local baseDirectory = (shared.VapePrivate and "vapeprivate/" or "vape/")
 local profilesDirectory = (shared.ClosetCheatMode and "ClosetProfiles/" or "Profiles/")
 local vapeInjected = true
@@ -211,8 +210,8 @@ task.spawn(function()
 	end
 end)
 
-GuiLibrary = pload("GuiLibrary.lua", true, true)
-VWFunctions = pload("Libraries/VoidwareFunctions.lua", true, true)
+local GuiLibrary = pload("GuiLibrary.lua", true, true)
+local VWFunctions = pload("Libraries/VoidwareFunctions.lua", true, true)
 
 GuiLibrary.SelfDestructEvent.Event:Connect(function() VWFunctions.SelfDestructEvent:Fire() end)
 
