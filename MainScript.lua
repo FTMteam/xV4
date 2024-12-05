@@ -100,7 +100,7 @@ local getcustomasset = getsynasset or getcustomasset or function(location) retur
 local customassetcheck = (getsynasset or getcustomasset) and true
 local queueonteleport = syn and syn.queue_on_teleport or queue_on_teleport or function() end
 local delfile = delfile or function(file) writefile(file, "") end
-
+print('x V4 Loaded MainScript.lua')
 local function displayErrorPopup(text, funclist)
 	local oldidentity = getidentity()
 	setidentity(8)
