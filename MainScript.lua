@@ -101,7 +101,7 @@ local getcustomasset = getsynasset or getcustomasset or function(location) retur
 local customassetcheck = (getsynasset or getcustomasset) and true
 local queueonteleport = syn and syn.queue_on_teleport or queue_on_teleport or function() end
 local delfile = delfile or function(file) writefile(file, "") end
-print('x V4 Loaded MainScript.lua')
+print('xquisite Loaded MainScript.lua')
 local function displayErrorPopup(text, funclist)
 	local oldidentity = getidentity()
 	setidentity(8)
@@ -856,7 +856,7 @@ VapeLogo.TextStrokeColor3 = Color3.new(255, 255, 255)
 VapeLogo.TextScaled = true
 VapeLogo.BackgroundTransparency = 1
 VapeLogo.TextColor3 = Color3.new(255, 255, 255)
-VapeLogo.Text = "x V4"
+VapeLogo.Text = "xquisite V4"
 VapeLogo.Name = "Logo"
 VapeLogo.Parent = VapeLogoFrame
 local VapeLogoGradient = Instance.new("UIGradient")
@@ -2223,7 +2223,7 @@ GeneralSettings.CreateButton2({
 })
 local function InfoNotification(title, text, delay)
 	local suc, res = pcall(function()
-		local frame = GuiLibrary.CreateNotification(title or "x V4", text or "Successfully called function", delay or 7, "assets/InfoNotification.png")
+		local frame = GuiLibrary.CreateNotification(title or "Xquisite V4", text or "Successfully called function", delay or 7, "assets/InfoNotification.png")
 		return frame
 	end)
     warn(title..": "..text)
@@ -2235,7 +2235,7 @@ local bedwarsID = {
 	lobby = {6872265039}
 }
 local function loadVape()
-	InfoNotification("x V4", "Loading...this might take 5-10 seconds", 5)
+	InfoNotification("Xquisite V4", "Loading...this might take 5-10 seconds", 5)
 	--game:GetService("Players").LocalPlayer.GameplayPaused = true
 	if not shared.VapeIndependent then
 		pload("Universal.lua", true)
@@ -2303,7 +2303,7 @@ local function loadVape()
 	if shared.CheatEngineMode then
 		if shared.CheatEngineMode and (not shared.VapeSwitchServers) then InfoNotification("x V4", "Loaded in Cheat Engine Mode! Some functions might be missing.", 1.5) end
 	else
-		InfoNotification("x V4", "Successfully loaded Voidware :D", 1.5)
+		InfoNotification("Xquisite V4", "Successfully loaded Xquisite :D", 1.5)
 	end
 	coroutine.resume(saveSettingsLoop)
 	shared.VapeFullyLoaded = true
