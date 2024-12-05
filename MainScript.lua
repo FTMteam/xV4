@@ -855,7 +855,7 @@ VapeLogo.TextStrokeColor3 = Color3.new(255, 255, 255)
 VapeLogo.TextScaled = true
 VapeLogo.BackgroundTransparency = 1
 VapeLogo.TextColor3 = Color3.new(255, 255, 255)
-VapeLogo.Text = "VOIDWARE"
+VapeLogo.Text = "x V4"
 VapeLogo.Name = "Logo"
 VapeLogo.Parent = VapeLogoFrame
 local VapeLogoGradient = Instance.new("UIGradient")
@@ -2222,7 +2222,7 @@ GeneralSettings.CreateButton2({
 })
 local function InfoNotification(title, text, delay)
 	local suc, res = pcall(function()
-		local frame = GuiLibrary.CreateNotification(title or "Voidware", text or "Successfully called function", delay or 7, "assets/InfoNotification.png")
+		local frame = GuiLibrary.CreateNotification(title or "x V4", text or "Successfully called function", delay or 7, "assets/InfoNotification.png")
 		return frame
 	end)
     warn(title..": "..text)
