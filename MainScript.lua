@@ -3,6 +3,8 @@ repeat task.wait() until game:IsLoaded()
 
 local baseDirectory = (shared.VapePrivate and "vapeprivate/" or "vape/")
 local profilesDirectory = (shared.ClosetCheatMode and "ClosetProfiles/" or "Profiles/")
+local GuiLibrary
+local VWFunctions
 local vapeInjected = true
 local oldRainbow = false
 local errorPopupShown = false
@@ -210,8 +212,8 @@ task.spawn(function()
 	end
 end)
 
-local GuiLibrary = pload("GuiLibrary.lua", true, true)
-local VWFunctions = pload("Libraries/VoidwareFunctions.lua", true, true)
+GuiLibrary = pload("GuiLibrary.lua", true, true)
+VWFunctions = pload("Libraries/VoidwareFunctions.lua", true, true)
 
 GuiLibrary.SelfDestructEvent.Event:Connect(function() VWFunctions.SelfDestructEvent:Fire() end)
 
