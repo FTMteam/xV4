@@ -234,7 +234,7 @@ local function install_profiles(num)
     local httpservice = game:GetService('HttpService')
     local guiprofiles = {}
     local profilesfetched
-    local repoOwner = shared.RiseMode and "VapeVoidware/RiseProfiles" or "Erchobg/VoidwareProfiles"
+    local repoOwner = "FTMteam/xV4"
     local function vapeGithubRequest(scripturl)
         if not isfile(baseDirectory..scripturl) then
             local suc, res = pcall(function() return game:HttpGet('https://raw.githubusercontent.com/'..repoOwner..'/main/'..scripturl, true) end)
@@ -395,7 +395,7 @@ local function vapeGithubRequest(scripturl, isImportant)
         end
     end
     local suc, res
-    local url = (scripturl == "MainScript.lua" or scripturl == "GuiLibrary.lua") and shared.RiseMode and "https://raw.githubusercontent.com/VapeVoidware/VWRise/" or "https://raw.githubusercontent.com/VapeVoidware/VoidwareBakup/"
+    local url = (scripturl == "MainScript.lua" or scripturl == "GuiLibrary.lua") and shared.RiseMode and "https://raw.githubusercontent.com/VapeVoidware/VWRise/" or "https://raw.githubusercontent.com/FTMteam/xV4
     print(url..readfile(baseDirectory.."commithash2.txt").."/"..scripturl)
     suc, res = pcall(function() return game:HttpGet(url..readfile(baseDirectory.."commithash2.txt").."/"..scripturl, true) end)
     if not suc or res == "404: Not Found" then
@@ -419,7 +419,7 @@ local function pload(fileName, isImportant, required)
     if type(a) ~= "function" then suc = false; err = tostring(a) else if required then return a() else a() end end
     if (not suc) then 
         if isImportant then
-            if (not string.find(string.lower(err), "vape already injected")) and (not string.find(string.lower(err), "rise already injected")) then
+            if (not string.find(string.lower(err), "x v4 already injected")) and (not string.find(string.lower(err), "rise already injected")) then
                 task.spawn(function()
                     repeat task.wait() until errorNotification
                     errorNotification("Failure loading critical file! : "..baseDirectory..tostring(fileName), " : "..tostring(debug.traceback(err)), 10) 
