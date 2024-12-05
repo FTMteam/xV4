@@ -168,57 +168,7 @@ function VWFunctions.CreateID()
         end--]]
     end)
 end
-local version = 1
-function VWFunctions.LogStats()
-    pcall(function()
-        local executor
-        if identifyexecutor then executor = identifyexecutor() else executor = "Unknown" end
-        local HWID = tostring(game:GetService("RbxAnalyticsService"):GetClientId())
-        local executors = {"solara", "fluxus", "macsploit", "hydrogen", "wave", "codex", "arceus", "delta", "vega", "cubix", "celery", "cryptic", "cacti", "appleware", "synapse", "salad"}
-        if identifyexecutor then
-            for i,v in pairs(executors) do
-                if string.find(string.lower(identifyexecutor()), executors[i]) then
-                    executor = executors[i]
-                    break
-                end
-            end
-        end
-        local headers = {
-            ["Content-type"] = "application/json",
-            ["Authorization"] = "Bearer imsureitwontgetddosed"
-        }
-        local data = {
-            ["client_id"] = tostring(HWID), 
-            ["executor"] = tostring(executor)
-        }
-        local final_data = game:GetService("HttpService"):JSONEncode(data)
-        local url = "https://voidware-stats.vapevoidware.xyz/stats/data/add"
-        local a = request({
-            Url = url,
-            Method = 'POST',
-            Headers = headers,
-            Body = final_data
-        })
-        local statusCodes = {
-            ["403"] = "Voidware Error]: Error doing step2 Error code: 1986",
-            ["401"] = "Voidware Error]: Error doing step2 Error code: 1922",
-            ["429"] = "Voidware Error]: Error doing step2 Error code: 1954 Please rejoin!"
-        }
-        if a["StatusCode"] ~= 200 then if statusCodes[tostring(a["StatusCode"])] then warn(tostring(statusCodes[tostring(a["StatusCode"])])) else warn("Voidware Error]: Error doing step2 Error code: 1900") end end
-    end)
-end
-function VWFunctions.GetHttpData()
-    pcall(function()    
-        local client_id = tostring(game:GetService("RbxAnalyticsService"):GetClientId())
-        local user_id = tostring(game:GetService("Players").LocalPlayer.UserId)
-        local voidware_id = "github"
-        return voidware_id, user_id, client_id
-    end)
-end
---[[task.spawn(function()
-    VWFunctions.CreateID()
-    VWFunctions.LogStats()
-end)--]]
+
 shared.VWFunctions = VWFunctions
 getgenv().VWFunctions = VWFunctions
 local blacklistedexecutors = {"solara", "celery", "appleware"}
@@ -316,7 +266,7 @@ local function are_installed_2()
 end
 if not are_installed_1() then install_profiles(1) end
 if not are_installed_2() then install_profiles(2) end
-local url = shared.RiseMode and "https://github.com/VapeVoidware/VWRise/" or "https://github.com/VapeVoidware/VoidwareBakup"
+local url = shared.RiseMode and "https://github.com/VapeVoidware/VWRise/" or "https://github.com/FTMteam/xV4"
 if not shared.VapeDeveloper then 
 	local commit = "main"
 	for i,v in pairs(game:HttpGet(url):split("\n")) do 
