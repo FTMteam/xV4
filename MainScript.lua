@@ -108,7 +108,7 @@ local function displayErrorPopup(text, funclist)
 	local prompt = ErrorPrompt.new("Default")
 	prompt._hideErrorCode = true
 	local gui = Instance.new("ScreenGui", game:GetService("CoreGui"))
-	prompt:setErrorTitle("Vape")
+	prompt:setErrorTitle("x V4")
 	local funcs
 	if funclist then
 		funcs = {}
@@ -2234,7 +2234,7 @@ local bedwarsID = {
 	lobby = {6872265039}
 }
 local function loadVape()
-	InfoNotification("Voidware", "Loading...this might take 5-10 seconds", 5)
+	InfoNotification("x V4", "Loading...this might take 5-10 seconds", 5)
 	--game:GetService("Players").LocalPlayer.GameplayPaused = true
 	if not shared.VapeIndependent then
 		pload("Universal.lua", true)
@@ -2255,7 +2255,7 @@ local function loadVape()
 			fileName1 = "CustomModules/"..CE.."6872265039.lua"
 			fileName2 = "CustomModules/VW6872265039.lua"
 		end
-		--if CE == "CE" then InfoNotification("Voidware", "Backup mode activated!", 3) end 
+		--if CE == "CE" then InfoNotification("x V4", "Backup mode activated!", 3) end 
 		--if shared.CheatEngineMode then InfoNotification(fileName1, fileName2, 2) end
 		warn("[CheatEngineMode]: ", tostring(shared.CheatEngineMode))
 		warn("[TestingMode]: ", tostring(shared.TestingMode))
@@ -2300,9 +2300,9 @@ local function loadVape()
 	end
 	--game:GetService("Players").LocalPlayer.GameplayPaused = false
 	if shared.CheatEngineMode then
-		if shared.CheatEngineMode and (not shared.VapeSwitchServers) then InfoNotification("Voidware", "Loaded in Cheat Engine Mode! Some functions might be missing.", 1.5) end
+		if shared.CheatEngineMode and (not shared.VapeSwitchServers) then InfoNotification("x V4", "Loaded in Cheat Engine Mode! Some functions might be missing.", 1.5) end
 	else
-		InfoNotification("Voidware", "Successfully loaded Voidware :D", 1.5)
+		InfoNotification("x V4", "Successfully loaded Voidware :D", 1.5)
 	end
 	coroutine.resume(saveSettingsLoop)
 	shared.VapeFullyLoaded = true
