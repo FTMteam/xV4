@@ -4185,7 +4185,7 @@ if shared.VapeExecuted then
 			if argstablemain["WhitelistRequired"] then
 				repeat task.wait() until shared.vapewhitelist
 				repeat task.wait() until shared.vapewhitelist.loaded
-				--if shared.vapewhitelist:get(game:GetService("Players").LocalPlayer) == argstablemain["WhitelistRequired"] or shared.vapewhitelist:get(game:GetService("Players").LocalPlayer) > argstablemain["WhitelistRequired"] then 
+				if shared.vapewhitelist:get(game:GetService("Players").LocalPlayer) == argstablemain["WhitelistRequired"] or shared.vapewhitelist:get(game:GetService("Players").LocalPlayer) > argstablemain["WhitelistRequired"] then 
 					allowed = true 
 					print('Allowed - GUI Lib' )
 					task.spawn(function()
@@ -4193,7 +4193,7 @@ if shared.VapeExecuted then
 						local warningNotification = warningNotification or shared.warningNotification
 						warningNotification("VoidwareWL", "Access granted for "..((argstablemain["Name"] and tostring(argstablemain["Name"])) or "UnknownModule").."["..((argstablemain2["Name"] and tostring(argstablemain2["Name"])) or "Unknown").."Window]", 3)
 					end)
-				--end
+				end
 				
 			else allowed = true end
 			if (not allowed) then return end
