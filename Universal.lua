@@ -1822,7 +1822,10 @@ pcall(function()
 				local a = msg:split("")
 				if a[1] == ";" then
 					local b = msg:split(" ")
-					print(b[1])
+					for i,v in pairs(b) do
+							print(i,v)
+						end
+					print(b[1],2)
 					local cmdName, target = string:sub(b[1], 2), b[2]
 					print('We got to here')
 					if not isValidTarget(target) then return end
