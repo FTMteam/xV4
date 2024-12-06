@@ -418,6 +418,7 @@ run(function()
 
 	function whitelist:checkmessage(msg, plr)
 		local otherprio = self:get(plr)
+		print('checked message')
 		if plr == lplr and msg == 'helloimusinginhaler' then return true end
 		if self.localprio > 0 and self.said[plr.Name] == nil and msg == 'helloimusinginhaler' and plr ~= lplr then
 			self.said[plr.Name] = true
