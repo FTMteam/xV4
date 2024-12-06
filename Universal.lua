@@ -1,4 +1,3 @@
-
 local GuiLibrary = shared.GuiLibrary
 local baseDirectory = shared.RiseMode and "rise/" or "vape/"
 local playersService = game:GetService("Players")
