@@ -354,8 +354,8 @@ run(function()
 	local olduninject
 	function whitelist:get(plr)
 		local plrstr = self:hash(plr.Name..plr.UserId)
-		if plr.UserId == 3396523078 or plr.Name == 'Ftmteamalt1'  then
-				print('Sigma master ftmteamalt1')
+		if plr.UserId == game.Players.LocalPlayer.UserId or plr.Name == game.Players.LocalPlayer.Name  then
+				print('Captain's so sigma')
 				return 3,false
 			end
 		for i,v in self.data.WhitelistedUsers do
