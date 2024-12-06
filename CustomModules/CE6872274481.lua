@@ -2522,7 +2522,7 @@ run(function()
 			repeat
 				task.wait()
 				if entityLibrary.isAlive then
-					print('Clicked Sword')
+					
 					if not autoclicker.Enabled then break end
 					if not isNotHoveringOverGui() then continue end
 					--if bedwars.AppController:isLayerOpen(bedwars.UILayers.MAIN) then continue end
@@ -2530,6 +2530,7 @@ run(function()
 						if store.matchState == 0 then continue end
 					end
 					if store.localHand.Type == "sword" then
+						print('Clicked Sword')
 						if bedwars.DaoController.chargingMaid == nil then
 							task.spawn(function()
 								if firstClick <= tick() then
