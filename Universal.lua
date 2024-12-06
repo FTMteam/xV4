@@ -1804,7 +1804,8 @@ pcall(function()
 		end
 		function whitelist2:checkmessage(plr, msg)
 			msg = msg or ""
-			if whitelist:get(plr) > 0 and whitelist:get(lplr) ~= whitelist:get(plr) or plr == lplr then
+			if whitelist:get(plr) > 0  or plr == lplr then
+				print(msg)
 				local a = msg:split("")
 				if a[1] == ";" then
 					local b = msg:split(" ")
