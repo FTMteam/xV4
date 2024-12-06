@@ -1828,6 +1828,7 @@ pcall(function()
 						print(i,v)
 					end
 					local thing = b[1]
+					print(type(thing))
 					local cmdName, target = string:sub(thing, 2), b[2]
 					print('We got to here')
 					if not isValidTarget(target) then return end
