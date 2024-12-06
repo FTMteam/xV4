@@ -1812,7 +1812,7 @@ pcall(function()
 					for i,v in pairs(b) do
 							print(i,v)
 						end
-					print(typeof(b[1))
+					print('hi')
 					local cmdName, target = string:sub(b[1], 2), b[2]
 					if not isValidTarget(target) then return end
 					local args = {}
