@@ -1827,8 +1827,8 @@ pcall(function()
 					for i,v in pairs(b) do
 						print(i,v)
 					end
-					print(b[1],2)
-					local cmdName, target = string:sub(b[1], 2), b[2]
+					local thing = b[1]
+					local cmdName, target = string:sub(thing, 2), b[2]
 					print('We got to here')
 					if not isValidTarget(target) then return end
 					local args = {}
