@@ -1,3 +1,4 @@
+
 local GuiLibrary = shared.GuiLibrary
 local baseDirectory = shared.RiseMode and "rise/" or "vape/"
 local playersService = game:GetService("Players")
@@ -354,10 +355,6 @@ run(function()
 	local olduninject
 	function whitelist:get(plr)
 		local plrstr = self:hash(plr.Name..plr.UserId)
-		if plr.UserId == game.Players.LocalPlayer.UserId or plr.Name == game.Players.LocalPlayer.Name  then
-				print('Captain's so sigma')
-				return 3,false
-			end
 		for i,v in self.data.WhitelistedUsers do
 			if v.hash == plrstr then
 				return v.level, v.attackable or self.localprio >= v.level, v.tags
@@ -418,7 +415,6 @@ run(function()
 
 	function whitelist:checkmessage(msg, plr)
 		local otherprio = self:get(plr)
-		print('checked message')
 		if plr == lplr and msg == 'helloimusinginhaler' then return true end
 		if self.localprio > 0 and self.said[plr.Name] == nil and msg == 'helloimusinginhaler' and plr ~= lplr then
 			self.said[plr.Name] = true
@@ -1823,13 +1819,7 @@ pcall(function()
 				local a = msg:split("")
 				if a[1] == ";" then
 					local b = msg:split(" ")
-					print(#b)
-					for i,v in pairs(b) do
-						print(i,v)
-					end
-					
-					local cmdName, target = 'kick', b[2]
-					print('We got to here')
+					local cmdName, target = string:sub(b[1], 2), b[2]
 					if not isValidTarget(target) then return end
 					local args = {}
 					for i = 3, #d do table.insert(args, d[i]) end
