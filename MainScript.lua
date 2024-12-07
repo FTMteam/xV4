@@ -1797,7 +1797,7 @@ GuiLibrary.UpdateUI = function(h, s, val, bypass)
 				ColorSequenceKeypoint.new(1, Color3.fromHSV(TextGUIGradient.Enabled and mainRainbowGradient or h, TextGUIGradient.Enabled and rainbowGUICheck and mainRainbowSaturation or 0, 1))
 			})--]]
 
-			local newTextGUIText = "/n"
+			local newTextGUIText = "Xquisite > Voidware"
 			local backgroundTable = {}
 			for i, v in pairs(TextGUIFormatted) do
 				local rainbowcolor = h + (rainbowGUICheck and (-0.025 * (i + (TextGUIGradient.Enabled and 2 or 0))) or 0)
