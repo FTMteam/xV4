@@ -102,6 +102,7 @@ local customassetcheck = (getsynasset or getcustomasset) and true
 local queueonteleport = syn and syn.queue_on_teleport or queue_on_teleport or function() end
 local delfile = delfile or function(file) writefile(file, "") end
 print('xquisite Loaded MainScript.lua')
+shared.NoAutoExecute = true
 local function displayErrorPopup(text, funclist)
 	local oldidentity = getidentity()
 	setidentity(8)
