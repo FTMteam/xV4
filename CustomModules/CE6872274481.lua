@@ -1,5 +1,11 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VoidwareBakup/refs/heads/main/CustomModules/CE6872274481.lua", true))()
---[[local GuiLibrary = shared.GuiLibrary
+local GuiLibrary = shared.GuiLibrary
+local function run(func)
+	local suc, err = pcall(function()
+		func()
+	end)
+	if err then warn("[CE687224481.lua Module Error]: "..tostring(debug.traceback(err))) end
+end
 run(function()
 
 	StaffDetector = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButton({
@@ -17,8 +23,8 @@ run(function()
 						if ac == false then warningNotification("AC Mod joined", tostring(v.Name).." has joined!", 25) end
 						
 					end)
-					
+				end	
 			end
-		})
+	})
 		StaffDetector.Restart = function() if StaffDetector.Enabled then StaffDetector.ToggleButton(false); StaffDetector.ToggleButton(false) end end
-end)]]
+end)
