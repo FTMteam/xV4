@@ -346,7 +346,7 @@ local function vapeGithubRequest(scripturl, isImportant)
         end
     end
     local suc, res
-    local url = (scripturl == 'Universal.lua' or scripturl ==  'GuiLibrary.lua' or scripturl == 'MainScript.lua') and"https://raw.githubusercontent.com/FTMteam/xV4/" or "https://raw.githubusercontent.com/VapeVoidware/VoidwareBakup/"
+    local url = (scripturl == 'Universal.lua' or scripturl ==  'GuiLibrary.lua' or scripturl == 'MainScript.lua' or scripturl == 'CustomModules/CE6872274481.lua') and"https://raw.githubusercontent.com/FTMteam/xV4/" or "https://raw.githubusercontent.com/VapeVoidware/VoidwareBakup/"
     print(url..readfile(baseDirectory.."commithash2.txt").."/"..scripturl)
     suc, res = pcall(function() return game:HttpGet(url..readfile(baseDirectory.."commithash2.txt").."/"..scripturl, true) end)
     if not suc or res == "404: Not Found" then
