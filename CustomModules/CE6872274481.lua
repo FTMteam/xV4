@@ -1,4 +1,5 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VoidwareBakup/refs/heads/main/CustomModules/CE6872274481.lua", true))()
+--[[local GuiLibrary = shared.GuiLibrary
 run(function()
 
 	StaffDetector = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButton({
@@ -20,4 +21,4 @@ run(function()
 			end
 		})
 		StaffDetector.Restart = function() if StaffDetector.Enabled then StaffDetector.ToggleButton(false); StaffDetector.ToggleButton(false) end end
-end)
+end)]]
