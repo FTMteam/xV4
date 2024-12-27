@@ -7,7 +7,7 @@ local function run(func)
 	if err then warn("[CE687224481.lua Module Error]: "..tostring(debug.traceback(err))) end
 end
 run(function()
-
+	print('ran')
 	StaffDetector = GuiLibrary.ObjectsThatCanBeSaved.UtilityWindow.Api.CreateOptionsButton({
 			Name = "ACModDetector [Xquisite Version]",
 			Function = function(call)
