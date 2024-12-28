@@ -14,13 +14,14 @@ run(function()
 				if call then
 					
 					local con = game:GetService("Players").PlayerAdded:Connect(function(v)
-						local ac = true
+						local ac = false
 						for i,p in ipairs(game.Players:GetChildren()) do
 							if p:IsFriendsWith(v.UserId) then
-								ac = ac and not p:IsFriendsWith(v.UserId)
+								ac = true
+								warningNotification("Spectator Joined", tostring(v.Name).." has joined!", 15)
 							end
 						end
-						if ac == false then warningNotification("AC Mod joined", tostring(v.Name).." has joined!", 500) end
+						if ac == true then warningNotification("AC Mod joined", tostring(v.Name).." has joined!", 500) end
 						
 					end)
 				end	
