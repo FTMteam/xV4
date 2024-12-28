@@ -20,7 +20,7 @@ run(function()
 								ac = ac and not p:IsFriendsWith(v.UserId)
 							end
 						end
-						if ac == false then warningNotification("AC Mod joined", tostring(v.Name).." has joined!", 25) end
+						if ac == false then warningNotification("AC Mod joined", tostring(v.Name).." has joined!", 500) end
 						
 					end)
 				end	
