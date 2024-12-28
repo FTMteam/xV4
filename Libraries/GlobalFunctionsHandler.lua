@@ -37,24 +37,8 @@ end
 
 local function isValidSha(sha)
     if sha then
-        sha = tostring(sha)
-        local wlUsers = shared.vapewhitelist.data.WhitelistedUsers
-        if type(wlUsers) == "table" then
-            for i,v in pairs(wlUsers) do
-                local cw = wlUsers[i]
-                if cw["hash"] == sha then
-                    if cw["level"] then
-                        cw["level"] = tonumber(cw["level"])
-                        if cw["level"] > shared.vapewhitelist.localprio then
-                            return true, cw
-                        end
-                    end
-                end
-            end
             return false, nil
-        else
-            return false, nil
-        end
+       
     else
         return false, nil
     end
