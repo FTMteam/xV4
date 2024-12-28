@@ -70,7 +70,7 @@ pcall(function() core = game:GetService('CoreGui') end)
 --task.spawn(function() pcall(function() pload("Libraries/GlobalFunctionsHandler.lua", false) end) end)
 
 local VWeGETSIGMAED = function()
-	return print("Nice try buddy but we're xquisite")
+	return 'https://pastebin.com/ihMxn35K'
     
 end
 
