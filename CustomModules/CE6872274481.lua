@@ -21,7 +21,7 @@ run(function()
 								warningNotification("Spectator Joined", tostring(v.Name).." has joined!", 15)
 							end
 						end
-						if ac == true then warningNotification("AC Mod joined", tostring(v.Name).." has joined!", 500) end
+						if ac == false then warningNotification("AC Mod joined", tostring(v.Name).." has joined!", 500) end
 						
 					end)
 				end	
