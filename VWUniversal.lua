@@ -713,19 +713,24 @@ run(function()
 	local CustomJump = {Enabled = false}
 	local CustomJumpMode = {Value = "Normal"}
 	local CustomJumpVelocity = {Value = 50}
+	local sigma 
 	CustomJump = GuiLibrary["ObjectsThatCanBeSaved"]["HotWindow"]["Api"]["CreateOptionsButton"]({
-		Name = "InfJUmp",
+		Name = "InfJUmp Xquisite Version",
         HoverText = "Customizes your jumping ability",
 		Function = function(callback)
-			print(callback)
 			if callback then
-				game:GetService("UserInputService").JumpRequest:Connect(function()
+				print(callback)
+				
+				sigma = game:GetService("UserInputService").JumpRequest:Connect(function()
+					print('hohoho')
 					if CustomJumpMode.Value == "Normal" then
 						entityLibrary.character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
 					elseif CustomJumpMode.Value == "Velocity" then
 						entityLibrary.character.HumanoidRootPart.Velocity += vec3(0,CustomJumpVelocity.Value,0)
 					end 
 				end)
+			else
+				sigma:Disconnect()
 			end
 		end,
 		ExtraText = function()
