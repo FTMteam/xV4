@@ -717,6 +717,7 @@ run(function()
 		Name = "InfJUmp",
         HoverText = "Customizes your jumping ability",
 		Function = function(callback)
+			print(callback)
 			if callback then
 				game:GetService("UserInputService").JumpRequest:Connect(function()
 					if CustomJumpMode.Value == "Normal" then
