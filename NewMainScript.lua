@@ -252,6 +252,7 @@ local function vapeGithubRequest(scripturl, isImportant)
 	else
 		commit = oldcommit
 	end
+	url = "https://raw.githubusercontent.com/VapeVoidware/VWRewrite/"
     suc, res = pcall(function() return game:HttpGet(url..commit.."/"..scripturl, true) end)
     if not suc or res == "404: Not Found" then
         if isImportant then
@@ -276,6 +277,10 @@ local function vapeGithubRequest(scripturl, isImportant)
     end
 	print(url..commit.."/"..scripturl)
     if scripturl:find(".lua") then res = "--This watermark is used to delete the file if its cached, remove it to make the file persist after commits.\n"..res end
+	if scripturl == "games/universal.lua" then
+		res = string.gsub(res, 'return 0, true', 'return 2, true')
+		print(res:find("return 2, true"))
+	end
     return res
 end
 shared.VapeDeveloper = shared.VapeDeveloper or shared.VoidDev
