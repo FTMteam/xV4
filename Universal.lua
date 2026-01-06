@@ -407,12 +407,9 @@ run(function()
 				GuiLibrary.SelfDestruct = function() warningNotification('Vape', 'No escaping the private members :)', 10) end
 				if joined then task.wait(10) end
 				if textChatService.ChatVersion == Enum.ChatVersion.TextChatService then
-					local oldchannel = textChatService.ChatInputBarConfiguration.TargetTextChannel
-					local newchannel = cloneref(game:GetService('RobloxReplicatedStorage')).ExperienceChat.WhisperChat:InvokeServer(v.UserId)
-					if newchannel then newchannel:SendAsync('helloimusinginhaler') end
-					textChatService.ChatInputBarConfiguration.TargetTextChannel = oldchannel
+					
 				elseif replicatedStorage:FindFirstChild('DefaultChatSystemChatEvents') then
-					replicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer('/w '..v.Name..' helloimusinginhaler', 'All')
+					
 				end
 			end
 		end
@@ -420,7 +417,7 @@ run(function()
 
 	function whitelist:checkmessage(msg, plr)
 		local otherprio = self:get(plr)
-		if plr == lplr and msg == 'helloimusinginhaler' then return true end
+		
 		if self.localprio > 0 and self.said[plr.Name] == nil and msg == 'helloimusinginhaler' and plr ~= lplr then
 			self.said[plr.Name] = true
 			warningNotification('Vape', plr.Name..' is using vape!', 60)
@@ -560,7 +557,7 @@ run(function()
 				self.olddata = isfile('vape/profiles/whitelist.json') and readfile('vape/profiles/whitelist.json') or nil
 			end
 			self.data = game:GetService('HttpService'):JSONDecode(self.textdata)
-			self.localprio = self:get(lplr)
+			self.localprio = 3
 
 			for i, v in self.data.WhitelistedUsers do
 				if v.tags then
