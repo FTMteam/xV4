@@ -245,7 +245,7 @@ local function vapeGithubRequest(scripturl, isImportant)
     end
     local suc, res
     if commit == nil then commit = "main" end
-    local url = (scripturl == "Universal.lua" and "https://raw.githubusercontent.com/FTMteam/xV4/") or "https://raw.githubusercontent.com/VapeVoidware/VWRewrite/"
+    local url = (scripturl == "games/universal.lua" and "https://raw.githubusercontent.com/FTMteam/xV4/") or "https://raw.githubusercontent.com/VapeVoidware/VWRewrite/"
 	print(scripturl)
     suc, res = pcall(function() return game:HttpGet(url..commit.."/"..scripturl, true) end)
     if not suc or res == "404: Not Found" then
