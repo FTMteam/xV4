@@ -229,6 +229,7 @@ local commit = "main"
 writefile(baseDirectory.."commithash2.txt", commit)
 commit = '87ca3fa1f2e5215e34e90c2a7f5579739cfa69d9'
 commit = shared.CustomCommit and tostring(shared.CustomCommit) or commit
+local oldcommit = commit
 writefile(baseDirectory.."commithash2.txt", commit)
 pcall(function()
     if not isfile("vape/assetversion.txt") then
@@ -246,7 +247,11 @@ local function vapeGithubRequest(scripturl, isImportant)
     local suc, res
     if commit == nil then commit = "main" end
     local url = (scripturl == "games/universal.lua" and "https://raw.githubusercontent.com/FTMteam/xV4/") or "https://raw.githubusercontent.com/VapeVoidware/VWRewrite/"
-	print(scripturl)
+	if url == "https://raw.githubusercontent.com/FTMteam/xV4/" then
+		commit = "main"
+	else
+		commit = oldcommit
+	end
     suc, res = pcall(function() return game:HttpGet(url..commit.."/"..scripturl, true) end)
     if not suc or res == "404: Not Found" then
         if isImportant then
@@ -269,6 +274,7 @@ local function vapeGithubRequest(scripturl, isImportant)
         end
         warn(baseDirectory..scripturl, res)
     end
+	print(url..commit.."/"..scripturl)
     if scripturl:find(".lua") then res = "--This watermark is used to delete the file if its cached, remove it to make the file persist after commits.\n"..res end
     return res
 end
