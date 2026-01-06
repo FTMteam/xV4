@@ -298,7 +298,7 @@ local whitelist = {
 	}),
 	hooked = false,
 	loaded = false,
-	localprio = 2,
+	localprio = 0,
 	said = {}
 }
 vape.Libraries.entity = entitylib
