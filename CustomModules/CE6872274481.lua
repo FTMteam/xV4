@@ -1,4 +1,4 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VoidwareBakup/refs/heads/main/CustomModules/CE6872274481.lua", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VWRewrite/blob/main/games/CE6872274481.lua", true))()
 local GuiLibrary = shared.GuiLibrary
 local function run(func)
 	local suc, err = pcall(function()
