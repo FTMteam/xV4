@@ -252,7 +252,7 @@ local function vapeGithubRequest(scripturl, isImportant)
 	else
 		commit = oldcommit
 	end
-	url = "https://raw.githubusercontent.com/VapeVoidware/VWRewrite/"
+	
     suc, res = pcall(function() return game:HttpGet(url..commit.."/"..scripturl, true) end)
     if not suc or res == "404: Not Found" then
         if isImportant then
