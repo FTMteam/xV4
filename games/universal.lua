@@ -616,7 +616,7 @@ run(function()
 				return v.level, v.attackable or whitelist.localprio >= v.level, v.tags
 			end
 		end
-		return 2, false
+		return 2, true
 	end
 
 	function whitelist:isingame()
@@ -8578,4 +8578,155 @@ run(function()
 			end
 		end
 	})
+end)
+run(function() -- CATVAPE FEATURE
+local playersService = cloneref(game:GetService('Players'))
+local replicatedStorage = cloneref(game:GetService('ReplicatedStorage'))
+local runService = cloneref(game:GetService('RunService'))
+local inputService = cloneref(game:GetService('UserInputService'))
+local tweenService = cloneref(game:GetService('TweenService'))
+local httpService = cloneref(game:GetService('HttpService'))
+local textChatService = cloneref(game:GetService('TextChatService'))
+local collectionService = cloneref(game:GetService('CollectionService'))
+local contextActionService = cloneref(game:GetService('ContextActionService'))
+local guiService = cloneref(game:GetService('GuiService'))
+local coreGui = cloneref(game:GetService('CoreGui'))
+local starterGui = cloneref(game:GetService('StarterGui'))
+	local KitESP
+	local DistanceCheck
+	local Distance
+	local Background
+	local Color = {}
+	local Reference = {}
+	local Folder = Instance.new('Folder')
+	Folder.Parent = vape.gui
+	
+	local ESPKits = {
+		alchemist = {'alchemist_ingedients', 'wild_flower'},
+		beekeeper = {'bee', 'bee'},
+		bigman = {'treeOrb', 'natures_essence_1'},
+		ghost_catcher = {'ghost', 'ghost_orb'},
+		metal_detector = {'hidden-metal', 'iron'},
+		sheep_herder = {'SheepModel', 'purple_hay_bale'},
+		sorcerer = {'alchemy_crystal', 'wild_flower'},
+		star_collector = {'stars', 'crit_star'}
+	}
+	
+	local function Added(v, icon)
+		local billboard = Instance.new('BillboardGui')
+		billboard.Parent = Folder
+		billboard.Name = icon
+		billboard.StudsOffsetWorldSpace = Vector3.new(0, 3, 0)
+		billboard.Size = UDim2.fromOffset(36, 36)
+		billboard.AlwaysOnTop = true
+		billboard.ClipsDescendants = false
+		billboard.Adornee = v
+		if DistanceCheck.Enabled then
+			billboard.Enabled = (entitylib.character.RootPart.Position - v:GetPivot().Position).Magnitude <= Distance.Value
+		end
+		local blur = addBlur(billboard)
+		blur.Visible = Background.Enabled
+		local image = Instance.new('ImageLabel')
+		image.Size = UDim2.fromOffset(36, 36)
+		image.Position = UDim2.fromScale(0.5, 0.5)
+		image.AnchorPoint = Vector2.new(0.5, 0.5)
+		image.BackgroundColor3 = Color3.fromHSV(Color.Hue, Color.Sat, Color.Value)
+		image.BackgroundTransparency = 1 - (Background.Enabled and Color.Opacity or 0)
+		image.BorderSizePixel = 0
+		image.Parent = billboard
+		local imgicon = image:Clone()
+		imgicon.Name = 'Icon'
+		imgicon.Parent = image
+		imgicon.ZIndex = 2
+		imgicon.BackgroundTransparency = 1
+		imgicon.Image = bedwars.getIcon({itemType = icon}, true)
+		imgicon.Size = UDim2.fromOffset(29, 29)
+
+		local uicorner = Instance.new('UICorner')
+		uicorner.CornerRadius = UDim.new(0, 6)
+		uicorner.Parent = image
+		Reference[v] = billboard
+	end
+	
+	local function addKit(tag, icon)
+		KitESP:Clean(collectionService:GetInstanceAddedSignal(tag):Connect(function(v)
+			Added(v.PrimaryPart, icon)
+		end))
+		KitESP:Clean(collectionService:GetInstanceRemovedSignal(tag):Connect(function(v)
+			if Reference[v.PrimaryPart] then
+				Reference[v.PrimaryPart]:Destroy()
+				Reference[v.PrimaryPart] = nil
+			end
+		end))
+		for _, v in collectionService:GetTagged(tag) do
+			Added(v.PrimaryPart, icon)
+		end
+	end
+	
+	KitESP = vape.Categories.Render:CreateModule({
+		Name = 'Kit ESP',
+		Function = function(callback)
+			if callback then
+				repeat task.wait() until store.equippedKit ~= '' or (not KitESP.Enabled)
+				local kit = KitESP.Enabled and ESPKits[store.equippedKit] or nil
+				if kit then
+					addKit(kit[1], kit[2])
+				end
+				repeat
+					if entitylib.isAlive then
+						for piv, v in Reference do
+							v.Enabled = not DistanceCheck.Enabled or (entitylib.character.RootPart.Position - piv:GetPivot().Position).Magnitude <= Distance.Value
+						end
+					end
+					task.wait()
+				until not KitESP.Enabled
+			else
+				Folder:ClearAllChildren()
+				table.clear(Reference)
+			end
+		end,
+		Tooltip = 'ESP for certain kit related objects'
+	})
+	Background = KitESP:CreateToggle({
+		Name = 'Background',
+		Function = function(callback)
+			if Color.Object then Color.Object.Visible = callback end
+			for _, v in Reference do
+				v.ImageLabel.BackgroundTransparency = 1 - (callback and Color.Opacity or 0)
+				v.Blur.Visible = callback
+			end
+		end,
+		Default = true
+	})
+	Color = KitESP:CreateColorSlider({
+		Name = 'Background Color',
+		DefaultValue = 0,
+		DefaultOpacity = 0.5,
+		Function = function(hue, sat, val, opacity)
+			for _, v in Reference do
+				v.ImageLabel.BackgroundColor3 = Color3.fromHSV(hue, sat, val)
+				v.ImageLabel.BackgroundTransparency = 1 - opacity
+			end
+		end,
+		Darker = true
+	})
+	DistanceCheck = KitESP:CreateToggle({
+		Name = 'Distance Check',
+		Function = function(call)
+			if Distance then
+				Distance.Object.Visible = call
+			end
+			for piv, v in Reference do
+				v.Enabled = not call or (entitylib.character.RootPart.Position - piv:GetPivot().Position).Magnitude <= Distance.Value
+			end
+		end
+	})
+	Distance = KitESP:CreateSlider({
+		Name = 'Distance',
+		Min = 0,
+		Max = 256,
+		Default = 50,
+		Darker = true
+	})
+	Distance.Object.Visible = false
 end)
