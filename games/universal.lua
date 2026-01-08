@@ -648,32 +648,14 @@ run(function()
 			if self.alreadychecked[v.UserId] then return end
 			self.alreadychecked[v.UserId] = true
 			self:hook()
-			if self.localprio == 0 then
-				olduninject = vape.Uninject
-				vape.Uninject = function()
-					notif('Vape', 'No escaping the private members :)', 10)
-				end
-				if joined then
-					task.wait(10)
-				end
-				if textChatService.ChatVersion == Enum.ChatVersion.TextChatService then
-					local oldchannel = textChatService.ChatInputBarConfiguration.TargetTextChannel
-					local newchannel = cloneref(game:GetService('RobloxReplicatedStorage')).ExperienceChat.WhisperChat:InvokeServer(v.UserId)
-					if newchannel then
-						newchannel:SendAsync('helloimusinginhaler')
-					end
-					textChatService.ChatInputBarConfiguration.TargetTextChannel = oldchannel
-				elseif replicatedStorage:FindFirstChild('DefaultChatSystemChatEvents') then
-					replicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer('/w '..v.Name..' helloimusinginhaler', 'All')
-				end
-			end
+			
 		end
 	end
 
 	function whitelist:process(msg, plr)
 		if plr == lplr and msg == 'helloimusinginhaler' then return true end
 
-		if self.localprio > 0 and not self.said[plr.Name] and msg == 'helloimusinginhaler' and plr ~= lplr then
+		if self.localprio > 0 and not self.said[plr.Name] and plr ~= lplr then
 			self.said[plr.Name] = true
 			warningNotification('Vape', plr.Name..' is using vape!', 60)
 			self.customtags[plr.Name] = {{
