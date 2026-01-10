@@ -444,12 +444,9 @@ local commands = {
 run(function()
 	function whitelist:get(plr)
 		local plrstr = self.hashes[plr.Name..plr.UserId]
-		for _, v in self.data.WhitelistedUsers do
-			if v.hash == plrstr then
-				return v.level, v.attackable or whitelist.localprio >= v.level, v.tags
-			end
-		end
-		return 2, true
+		if plr == lplr then
+				return 3, true
+		return 0, true
 	end
 
 	function whitelist:isingame()
