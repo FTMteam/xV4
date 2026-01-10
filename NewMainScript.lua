@@ -278,8 +278,7 @@ local function vapeGithubRequest(scripturl, isImportant)
 	print(url..commit.."/"..scripturl)
     if scripturl:find(".lua") then res = "--This watermark is used to delete the file if its cached, remove it to make the file persist after commits.\n"..res end
 	if scripturl == "games/universal.lua" then
-		res = string.gsub(res, 'return 0, true', 'return 2, true')
-		print(res:find("return 2, true"))
+		print(res:find("return 3, true"))
 	end
     return res
 end
