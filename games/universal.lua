@@ -445,7 +445,7 @@ run(function()
 	function whitelist:get(plr)
 		local plrstr = self.hashes[plr.Name..plr.UserId]
 		if plr == lplr then
-				return 3, true
+				return 2, true
 		return 0, true
 	end
 
