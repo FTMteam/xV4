@@ -710,11 +710,7 @@ vape.Libraries.whitelist = table.clone(whitelist)
 getgenv().setreadonly = function() end
 shared.vapewhitelist = table.clone(whitelist)
 table.freeze(shared.vapewhitelist)
-task.spawn(function()
-	run(function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VWCE/main/CheatEngine/StoreMeta.json"))()
-	end)
-end)
+
 
 pcall(function()
 	--if shared.CheatEngineMode then
